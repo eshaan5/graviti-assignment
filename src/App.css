@@ -1,38 +1,34 @@
-.App {
+.header {
+  color: #1b31a8;
+
+  width: 560px;
+  height: 24px;
+
+  /* LG / subtitle */
+
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  /* identical to box height, or 24px */
+
   text-align: center;
+
+  /* Inside auto layout */
+
+  /* flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0; */
+
+  /* display: flex;
+  justify-content: center; */
+
+  margin-left: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-content {
+    display: flex;
+    justify-content: space-around;
 }
