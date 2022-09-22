@@ -2,7 +2,10 @@ import React from "react";
 import placeholder from "../../assets/placeholder.png";
 import "./details.css";
 
-const Details = () => {
+const Details = ({ Autocomplete, originRef, destinationRef, calculateRoute, distance, duration }) => {
+
+  console.log(originRef.current.value, destinationRef.current.value)
+
   return (
     <div className="details">
       <div className="flex">
@@ -11,7 +14,9 @@ const Details = () => {
             <label htmlFor="origin">Origin</label>
             <div className="input">
               <img src={placeholder} alt="" className="placeholder" />
-              <input type="text" name="origin" id="origin" placeholder="Enter origin" />
+              <Autocomplete>
+              <input type="text" name="origin" id="origin" placeholder="Enter origin" ref={originRef} />
+              </Autocomplete>
             </div>
           </div>
 
@@ -19,28 +24,30 @@ const Details = () => {
             <label htmlFor="origin">Destination</label>
             <div className="input">
               <img src={placeholder} alt="" className="placeholder" />
-              <input type="text" name="origin" id="origin" placeholder="Enter destination" />
+              <Autocomplete>
+              <input type="text" name="destination" id="destination" placeholder="Enter destination" ref={destinationRef} />
+              </Autocomplete>
             </div>
           </div>
         </div>
 
         <div className="button">
-          <button>Calculate</button>
+          <button onClick={calculateRoute}>Calculate</button>
         </div>
       </div>
       <div className="results">
         <div className="distance">
           <p className="content">Distance</p>
-          <p className="value">1,427 kms</p>
+          <p className="value">{distance}</p>
         </div>
         <div className="eta">
           <p className="content">ETA</p>
-          <p className="value">2 hrs</p>
+          <p className="value">{duration}</p>
         </div>
       </div>
-      <p className="final">
-        The distance between <b>Mumbai</b> and <b>Delhi</b> is <b>1,427 kms</b> and estimated time of arrival (ETA) is <b>2 hrs</b>.
-      </p>
+      { (originRef.current.value !== '' && destinationRef.current.value !== '') ? (<p className="final">
+        The distance between <b>{originRef.current.value}</b> and <b>{destinationRef.current.value}</b> is <b>{distance}</b> and estimated time of arrival (ETA) is <b>{duration}</b>.
+      </p>) : null}
     </div>
   );
 };
